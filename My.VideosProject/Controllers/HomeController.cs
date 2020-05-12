@@ -18,5 +18,12 @@ namespace My.VideosProject.Controllers
         {
             return View((object)logId);
         }
+
+        public ActionResult ErrorTip(string msg, string url)
+        {
+            ViewBag.Msg = msg;
+            ViewBag.Url = url;
+            return View();
+        }
     }
 }

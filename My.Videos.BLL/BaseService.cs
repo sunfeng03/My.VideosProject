@@ -65,8 +65,15 @@ namespace My.Videos.BLL
         public T AddEntity(T entity)
         {
             CurrentRepository.AddEntity(entity);
-            this.GetCurrentDbSession.SaveChanges();
-            return entity;
+            var num = this.GetCurrentDbSession.SaveChanges();
+            if (num)
+            {
+                return entity;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 

@@ -61,10 +61,6 @@
       <Project>{b94599a7-9f81-4c9d-b67e-d3d24c77688c}</Project>
       <Name>My.Videos.DALSessionFactory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\My.Videos.DAL\My.Videos.DAL.csproj">
-      <Project>{7cfb4935-1e00-4357-b877-96f91faba120}</Project>
-      <Name>My.Videos.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\My.Videos.EntityFramework\My.Videos.EntityFramework.csproj">
       <Project>{b1aaf7c0-0017-4041-bed0-926bcc3db79e}</Project>
       <Name>My.Videos.EntityFramework</Name>
@@ -74,7 +70,7 @@
       <Name>My.Videos.IBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\My.Videos.IDAL\My.Videos.IDAL.csproj">
-      <Project>{FC274D79-20E4-420A-9CD8-ACDF6960D081}</Project>
+      <Project>{fc274d79-20e4-420a-9cd8-acdf6960d081}</Project>
       <Name>My.Videos.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\My.Videos.Model\My.Videos.Model.csproj">

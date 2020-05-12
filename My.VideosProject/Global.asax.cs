@@ -32,7 +32,8 @@ namespace My.VideosProject
         protected void Application_Start()
         {
             //注册autofac
-            DependencyInjector.Initialise();
+            //DependencyInjector.Initialise();
+            AutoFacBootStrapper.Register();
             HttpContext.Current.Application["Version"] = Version;
             InitLog4net();
             InitJsonNet();

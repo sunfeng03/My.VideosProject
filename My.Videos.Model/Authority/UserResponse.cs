@@ -78,5 +78,10 @@ namespace My.Videos.Model.Authority
         /// 是否删除
         /// </summary>
         public int IsDelete { get; set; }
+
+        /// <summary>
+        /// 操作状态 update|insert
+        /// </summary>
+        public string Status { get; set; }
     }
 }

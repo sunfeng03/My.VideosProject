@@ -296,6 +296,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\ErrorTip.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -307,6 +308,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\My.Videos.BLL\My.Videos.BLL.csproj">
+      <Project>{9DF0A02C-50E0-49BB-8D2F-81E1D95A8332}</Project>
+      <Name>My.Videos.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\My.Videos.Common\My.Videos.Common.csproj">
       <Project>{39b24b8c-04ef-4b0e-a14e-a74e5d226d5c}</Project>
       <Name>My.Videos.Common</Name>
