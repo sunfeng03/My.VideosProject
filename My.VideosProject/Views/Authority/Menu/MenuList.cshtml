@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "菜单列表";
+}
+
+<blockquote class="layui-elem-quote blog-manage-breadcrumb">
+    <span class="layui-breadcrumb">
+        <a>权限管理</a>
+        <a href="@Url.Action("MenuList", "Menu")"><cite>菜单管理</cite></a>
+    </span>
+</blockquote>
+
+<div class="layui-row">
+    <div class="layui-col-md12">
+        <div id="menuTree"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        layui.use(['form', 'jquery', 'layer', 'tree'], function () {
+            var tree = layui.tree;
+            var $ = layui.jquery;
+            var form = layui.form;
+            var layer = layui.layer;
+
+            //渲染
+            $.post('/Menu/GetAllMenu', {}, function (data) {
+                debugger;
+                if (data) {
+                    var inst1 = tree.render({
+                        elem: '#menuTree'
+                        , data: data
+                        , edit: ['add', 'update', 'del']
+                    });
+                }
+            });
+
+            tree.render({
+                elem: '#menuTree'
+                , click: function (obj) {
+                    debugger;
+                    console.log(obj.data); //得到当前点击的节点数据
+                    console.log(obj.state); //得到当前节点的展开状态：open、close、normal
+                    console.log(obj.elem); //得到当前节点元素
+
+                    $.post("/Menu/GetMenuById", {id:obj.data.id}, function (data) {
+                        layer.open({
+                            type: 1,
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['420px', '240px'], //宽高
+                            content: 'html内容'
+                        });
+                    });
+                }
+                , operate: function (obj) {
+                    var type = obj.type; //得到操作类型：add、edit、del
+                    var data = obj.data; //得到当前节点的数据
+                    var elem = obj.elem; //得到当前节点元素
+
+                    //Ajax 操作
+                    var id = data.id; //得到节点索引
+                    if (type === 'add') { //增加节点
+                        //返回 key 值
+                        return 123;
+                    } else if (type === 'update') { //修改节点
+                        console.log(elem.find('.layui-tree-txt').html()); //得到修改后的内容
+                    } else if (type === 'del') { //删除节点
+
+                    };
+                }
+            });
+
+            //设置菜单选中样式
+            var $item = $('.layui-nav > .layui-nav-item .layui-nav-child').children();
+            $.each($item, function (i, val) {
+                if ($(this).find("a").text() == "菜单管理")
+                    $(this).addClass('layui-this');
+                else
+                    $(this).removeClass('layui-this');
+            });
+        });
+    </script>
+}
+

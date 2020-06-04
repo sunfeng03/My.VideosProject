@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authority\MenuResponse.cs" />
     <Compile Include="Authority\UserRequest.cs" />
     <Compile Include="Authority\UserResponse.cs" />
     <Compile Include="Base\BaseRequest.cs" />
